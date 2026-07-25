@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nakshathira S · portfolio</title>
+  <!-- Font Awesome 5 (free) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+  <!-- Google Font for advanced typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      background: #f0f4f9;
+      color: #1e293b;
+      line-height: 1.6;
+      padding: 1.5rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* header / hero - enhanced */
+    .hero {
+      background: linear-gradient(145deg, #0f172a, #1a2a4a);
+      color: #f8fafc;
+      padding: 3rem 2.5rem;
+      border-radius: 2.5rem;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.4);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      background: linear-gradient(135deg, #ffffff 0%, #93c5fd 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero .subtitle {
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: #94a3b8;
+      margin-top: 0.25rem;
+    }
+
+    .hero .badge-student {
+      background: #3b82f6;
+      padding: 0.3rem 1.2rem;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      display: inline-block;
+      margin-top: 0.5rem;
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+    }
+
+    .hero-details {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .hero-details span {
+      background: rgba(255,255,255,0.06);
+      backdrop-filter: blur(8px);
+      padding: 0.4rem 1.2rem;
+      border-radius: 60px;
+      font-size: 0.85rem;
+      border: 1px solid rgba(255,255,255,0.08);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .hero-details span i {
+      color: #60a5fa;
+      font-size: 0.9rem;
+    }
+
+    .hero-contact {
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(12px);
+      padding: 1rem 2rem;
+      border-radius: 60px;
+      display: flex;
+      gap: 1.8rem;
+      flex-wrap: wrap;
+      border: 1px solid rgba(255,255,255,0.08);
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-contact a {
+      color: #e2e8f0;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: 0.3s ease;
+    }
+
+    .hero-contact a:hover {
+      color: #93c5fd;
+      transform: translateY(-2px);
+    }
+
+    /* navigation - enhanced */
+    nav {
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(16px);
+      padding: 0.8rem 2rem;
+      border-radius: 80px;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.04);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.2rem 1.4rem;
+      border: 1px solid rgba(255,255,255,0.6);
+    }
+
+    nav a {
+      color: #334155;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 0.4rem 0.2rem;
+      border-bottom: 2px solid transparent;
+      transition: 0.2s ease;
+      position: relative;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #3b82f6;
+      transition: 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #2563eb;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* sections - enhanced */
+    section {
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(8px);
+      border-radius: 2rem;
+      padding: 2.2rem 2.5rem;
+      margin-bottom: 2.2rem;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.02);
+      border: 1px solid rgba(255,255,255,0.6);
+      transition: 0.3s ease;
+    }
+
+    section:hover {
+      box-shadow: 0 8px 40px rgba(0,0,0,0.04);
+      border-color: rgba(59, 130, 246, 0.1);
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      color: #0f172a;
+      letter-spacing: -0.02em;
+    }
+
+    .section-title i {
+      color: #3b82f6;
+      font-size: 1.6rem;
+      background: rgba(59, 130, 246, 0.1);
+      padding: 0.5rem;
+      border-radius: 14px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    /* education cards - enhanced */
+    .edu-card {
+      background: #f8fafc;
+      border-radius: 1.5rem;
+      padding: 1.5rem 1.8rem;
+      border-left: 4px solid #3b82f6;
+      transition: 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    }
+
+    .edu-card:hover {
+      transform: translateX(6px);
+      box-shadow: 0 8px 24px rgba(59, 130, 246, 0.08);
+      border-left-color: #1d4ed8;
+    }
+
+    .edu-card .edu-title {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #0f172a;
+    }
+
+    .edu-card .edu-institute {
+      font-weight: 600;
+      color: #1e293b;
+      margin-top: 0.1rem;
+    }
+
+    .edu-card .edu-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      color: #475569;
+    }
+
+    .edu-card .edu-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .edu-card .edu-meta i {
+      color: #3b82f6;
+      font-size: 0.8rem;
+    }
+
+    .edu-card .edu-score {
+      display: inline-block;
+      background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+      color: white;
+      padding: 0.2rem 1rem;
+      border-radius: 40px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      margin-top: 0.4rem;
+    }
+
+    /* skill badges - enhanced */
+    .skill-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #eef2ff, #e0e7ff);
+      color: #1e293b;
+      padding: 0.4rem 1.4rem;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      margin: 0.25rem 0.25rem 0 0;
+      border: 1px solid rgba(59, 130, 246, 0.08);
+      transition: 0.2s ease;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    }
+
+    .skill-badge:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(59, 130, 246, 0.1);
+      border-color: #3b82f6;
+    }
+
+    .skill-badge i {
+      margin-right: 0.4rem;
+      color: #3b82f6;
+    }
+
+    /* project cards - enhanced */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 0.5rem;
+    }
+
+    .project-card {
+      background: #ffffff;
+      border-radius: 2rem;
+      padding: 1.6rem 1.8rem 1.8rem;
+      border: 1px solid #eef2f6;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.01);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+      opacity: 0;
+      transition: 0.3s ease;
+    }
+
+    .project-card:hover::before {
+      opacity: 1;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      border-color: #b9d0f0;
+      box-shadow: 0 24px 48px -12px rgba(37, 99, 235, 0.15);
+    }
+
+    .project-card h3 {
+      font-size: 1.3rem;
+      font-weight: 800;
+      margin-bottom: 0.3rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .project-card .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+      margin: 0.6rem 0 0.8rem;
+    }
+
+    .project-card .tech-tags span {
+      background: #f1f4f9;
+      padding: 0.2rem 1rem;
+      border-radius: 40px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: #1e293b;
+      letter-spacing: 0.02em;
+    }
+
+    .project-card .desc {
+      color: #334155;
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+
+    .project-card .repo-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #0f172a;
+      color: white;
+      padding: 0.4rem 1.2rem;
+      border-radius: 60px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.8rem;
+      transition: 0.15s;
+      border: 1px solid #0f172a;
+    }
+
+    .project-card .repo-link:hover {
+      background: #1e293b;
+      border-color: #3b82f6;
+    }
+
+    .project-card .repo-link i {
+      font-size: 0.9rem;
+    }
+
+    /* detail popup (click) */
+    .project-detail-box {
+      display: none;
+      margin-top: 0.8rem;
+      background: #f1f5f9;
+      padding: 1rem 1.2rem;
+      border-radius: 1.4rem;
+      border-left: 4px solid #2563eb;
+    }
+
+    .project-detail-box.show {
+      display: block;
+    }
+
+    .project-detail-box p {
+      margin-bottom: 0.3rem;
+      color: #1e293b;
+      font-size: 0.95rem;
+    }
+
+    .project-detail-box strong {
+      color: #0f172a;
+    }
+
+    /* contact / footer */
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      margin: 0.8rem 0;
+    }
+
+    .contact-links a {
+      background: #f1f5f9;
+      padding: 0.5rem 1.2rem;
+      border-radius: 60px;
+      text-decoration: none;
+      color: #1e293b;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border: 1px solid #e2e8f0;
+      transition: 0.15s;
+    }
+
+    .contact-links a:hover {
+      background: #dbeafe;
+      border-color: #3b82f6;
+    }
+
+    /* Download button styling */
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      background: #2563eb;
+      color: white;
+      padding: 0.7rem 1.8rem;
+      border-radius: 60px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .download-btn:hover {
+      background: #1d4ed8;
+      transform: scale(1.02);
+      box-shadow: 0 8px 24px rgba(37, 99, 235, 0.3);
+    }
+
+    .download-btn i {
+      font-size: 1.1rem;
+    }
+
+    /* Certificate cards - NEW & IMPROVED */
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.2rem;
+      margin-top: 0.5rem;
+    }
+
+    .cert-card {
+      background: #f8fafc;
+      border-radius: 1.2rem;
+      padding: 1rem 1.5rem;
+      border: 1px solid #eef2f6;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      text-decoration: none;
+      color: #1e293b;
+    }
+
+    .cert-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px -8px rgba(59, 130, 246, 0.12);
+      border-color: #3b82f6;
+      background: white;
+    }
+
+    .cert-card .cert-icon {
+      width: 44px;
+      height: 44px;
+      min-width: 44px;
+      background: linear-gradient(135deg, #eef2ff, #dbeafe);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      color: #3b82f6;
+    }
+
+    .cert-card .cert-info {
+      flex: 1;
+    }
+
+    .cert-card .cert-info .cert-name {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #0f172a;
+    }
+
+    .cert-card .cert-info .cert-issuer {
+      font-size: 0.8rem;
+      color: #64748b;
+      margin-top: 0.1rem;
+    }
+
+    .cert-card .cert-arrow {
+      color: #94a3b8;
+      font-size: 0.9rem;
+      transition: 0.3s ease;
+    }
+
+    .cert-card:hover .cert-arrow {
+      color: #3b82f6;
+      transform: translateX(4px);
+    }
+
+    footer {
+      text-align: center;
+      color: #64748b;
+      padding: 1.5rem 0 0.5rem;
+      border-top: 1px solid #e2e8f0;
+      margin-top: 2rem;
+    }
+
+    /* responsive */
+    @media (max-width: 700px) {
+      .hero { flex-direction: column; align-items: start; gap: 1rem; }
+      .hero h1 { font-size: 2.2rem; }
+      .grid-2 { grid-template-columns: 1fr; }
+      section { padding: 1.5rem; }
+      nav { border-radius: 40px; padding: 0.8rem 1rem; gap: 0.3rem 0.8rem; }
+      .cert-grid { grid-template-columns: 1fr; }
+    }
+
+    /* misc */
+    .mt-1 { margin-top: 0.8rem; }
+    .mb-1 { margin-bottom: 0.8rem; }
+    .text-muted { color: #475569; }
+    .flex { display: flex; flex-wrap: wrap; align-items: center; gap: 0.8rem; }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- HERO -->
+    <header class="hero">
+      <div>
+        <h1>Nakshathira S</h1>
+        <div class="subtitle">Student · Aspiring Data Engineer & AI enthusiast</div>
+        <div class="badge-student"><i class="fas fa-graduation-cap"></i> B.E. CSE · 2027</div>
+        <div class="hero-details">
+          <span><i class="fas fa-calendar-alt"></i> DOB: 15 June 2005</span>
+          <span><i class="fas fa-map-pin"></i> Coimbatore, IN</span>
+          <span><i class="fas fa-star"></i> CGPA: 8.81/10</span>
+        </div>
+      </div>
+      <div class="hero-contact">
+        <a href="mailto:snakshathira148@gmail.com"><i class="fas fa-envelope"></i> snakshathira148</a>
+        <a href="tel:+919080411622"><i class="fas fa-phone-alt"></i> +91 90804 11622</a>
+        <a href="https://www.linkedin.com/in/nakshathira-s-" target="_blank"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+      </div>
+    </header>
+
+    <!-- NAV -->
+    <nav>
+      <a href="#introduction">Intro</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+      <a href="#certificates">Certificates</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a href="#resume">Resume</a>
+    </nav>
+
+    <!-- INTRODUCTION -->
+    <section id="introduction">
+      <h2 class="section-title"><i class="fas fa-user-astronaut"></i> Introduction</h2>
+      <p style="font-size: 1.1rem;">Final-year B.E. CSE student with strong Python, SQL, and data analytics skills. Passionate about building data-driven applications and exploring AI. Currently developing <strong>Glow Guide AI</strong>, an AI-powered skincare assistant.</p>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <h2 class="section-title"><i class="fas fa-code"></i> Skills</h2>
+      <div>
+        <div style="margin-bottom: 0.8rem;"><strong><i class="fas fa-laptop-code"></i> Programming &amp; Languages</strong></div>
+        <span class="skill-badge"><i class="fab fa-python"></i> Python</span>
+        <span class="skill-badge"><i class="fab fa-java"></i> Java</span>
+        <span class="skill-badge"><i class="fas fa-database"></i> SQL</span>
+        <span class="skill-badge"><i class="fas fa-code"></i> HTML5/CSS3</span>
+        <span class="skill-badge"><i class="fab fa-js"></i> JavaScript</span>
+        <span class="skill-badge"><i class="fas fa-flask"></i> Flask</span>
+        <span class="skill-badge"><i class="fas fa-chart-pie"></i> Power BI</span>
+        <span class="skill-badge"><i class="fas fa-chart-line"></i> Data Analysis</span>
+        <span class="skill-badge"><i class="fas fa-database"></i> DBMS</span>
+        <span class="skill-badge"><i class="fas fa-project-diagram"></i> Data Structures</span>
+      </div>
+      <div style="margin-top: 1rem;">
+        <div><strong><i class="fas fa-users"></i> Soft Skills</strong></div>
+        <span class="skill-badge">Analytical Thinking</span>
+        <span class="skill-badge">Problem Solving</span>
+        <span class="skill-badge">Communication</span>
+        <span class="skill-badge">Team Collaboration</span>
+        <span class="skill-badge">Adaptability</span>
+      </div>
+      <div style="margin-top: 1rem;">
+        <div><strong><i class="fas fa-language"></i> Languages</strong></div>
+        <span class="skill-badge">Telugu (Native)</span>
+        <span class="skill-badge">Tamil</span>
+        <span class="skill-badge">English</span>
+      </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects">
+      <h2 class="section-title"><i class="fas fa-folder-open"></i> Projects</h2>
+      <div class="project-grid">
+
+        <!-- project 1: Glow Guide AI -->
+        <div class="project-card" onclick="toggleDetail(this)">
+          <h3><span>✨</span> Glow Guide AI</h3>
+          <div class="tech-tags"><span>Python</span><span>Flask</span><span>AI</span><span>DB</span></div>
+          <div class="desc">AI-powered skincare assistant using Python, Flask, and database technologies.</div>
+          <a href="https://github.com/NAKSHATHIRA-S/Glow-Guide-AI.git" target="_blank" class="repo-link" onclick="event.stopPropagation();"><i class="fab fa-github"></i> Visit repo</a>
+          <div class="project-detail-box">
+            <p><strong>🔍 details</strong> · built with Flask, integrates LLM for personalized skincare recommendations. Uses MongoDB for user profiles.</p>
+            <p><strong>📌 status:</strong> active development · MVP expected Q4 2026</p>
+          </div>
+        </div>
+
+        <!-- project 2: Stationery Shop Billing - Video Demo -->
+        <div class="project-card" onclick="toggleDetail(this)">
+          <h3><span>🧾</span> Billing Management</h3>
+          <div class="tech-tags"><span>SQL</span><span>CRUD</span><span>DBMS</span></div>
+          <div class="desc">SQL-based billing system for product, customer & sales management.</div>
+          <a href="https://drive.google.com/file/d/1yZFv5NNOC-Rm4NxgYX9xbpRuUNJwKoYD/view?usp=sharing" target="_blank" class="repo-link" onclick="event.stopPropagation();"><i class="fas fa-video"></i> Watch Demo</a>
+          <div class="project-detail-box">
+            <p><strong>🗃️ CRUD operations</strong> · efficient transaction handling, automated record management.</p>
+            <p><strong>📊 impact:</strong> reduced billing errors by 40% through structured data storage.</p>
+          </div>
+        </div>
+
+        <!-- project 3: Power BI Churn Dashboard -->
+        <div class="project-card" onclick="toggleDetail(this)">
+          <h3><span>📊</span> Churn Dashboard</h3>
+          <div class="tech-tags"><span>Power BI</span><span>DAX</span><span>Data Viz</span></div>
+          <div class="desc">Interactive telecom churn analysis: 1869 at-risk customers, $2.86M revenue.</div>
+          <a href="https://github.com/NAKSHATHIRA-S/PowerBI-Churn-Dashboard.git" target="_blank" class="repo-link" onclick="event.stopPropagation();"><i class="fab fa-github"></i> Visit repo</a>
+          <div class="project-detail-box">
+            <p><strong>📈 key insights:</strong> month-to-month contracts highest churn, fiber optic users higher probability.</p>
+            <p><strong>🛠️ tools:</strong> Power BI, DAX, data modeling · full PDF report + GitHub repo.</p>
+          </div>
+        </div>
+
+        <!-- project 4: Lab Equipment Tracker -->
+        <div class="project-card" onclick="toggleDetail(this)">
+          <h3><span>🧪</span> Lab Equipment Tracker</h3>
+          <div class="tech-tags"><span>React</span><span>Node.js</span><span>MongoDB</span></div>
+          <div class="desc">Full-stack equipment tracking with real-time inventory, check-in/out, admin panel.</div>
+          <a href="https://github.com/NAKSHATHIRA-S/Lab-Equipment-Tracker-" target="_blank" class="repo-link" onclick="event.stopPropagation();"><i class="fab fa-github"></i> Visit repo</a>
+          <div class="project-detail-box">
+            <p><strong>⚡ features:</strong> real-time availability · check-in/out logs · CRUD admin panel.</p>
+            <p><strong>🛠️ stack:</strong> React, Node.js, MongoDB, custom CSS · responsive.</p>
+          </div>
+        </div>
+
+      </div>
+      <p style="margin-top: 1.2rem; color: #475569; font-size: 0.9rem;"><i class="fas fa-mouse-pointer"></i> Click on any project card to see more details.</p>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
+      <h2 class="section-title"><i class="fas fa-university"></i> Education</h2>
+      <div class="grid-2">
+        <!-- College -->
+        <div class="edu-card">
+          <div class="edu-title">Bachelor of Engineering</div>
+          <div class="edu-institute">KGiSL Institute Of Technology</div>
+          <div class="edu-meta">
+            <span><i class="fas fa-calendar-alt"></i> Sept 2023 – May 2027</span>
+            <span><i class="fas fa-graduation-cap"></i> CGPA: 8.81/10</span>
+          </div>
+          <div class="edu-score"><i class="fas fa-book"></i> 8.81 CGPA</div>
+        </div>
+
+        <!-- 12th -->
+        <div class="edu-card">
+          <div class="edu-title">Higher Secondary (12th)</div>
+          <div class="edu-institute">Municipal Girls Higher Secondary School, Mettupalayam</div>
+          <div class="edu-meta">
+            <span><i class="fas fa-calendar-alt"></i> 2022 – 2023</span>
+            <span><i class="fas fa-book"></i> 552/600</span>
+          </div>
+          <div class="edu-score"><i class="fas fa-book"></i> 92%</div>
+        </div>
+
+        <!-- 11th -->
+        <div class="edu-card" style="grid-column: 1 / -1; max-width: 100%;">
+          <div class="edu-title">Higher Secondary (11th)</div>
+          <div class="edu-institute">Government Higher Secondary School, Kalapatti</div>
+          <div class="edu-meta">
+            <span><i class="fas fa-calendar-alt"></i> 2021 – 2022</span>
+            <span><i class="fas fa-book"></i> 531/600</span>
+          </div>
+          <div class="edu-score"><i class="fas fa-book"></i> 88.5%</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATES - IMPROVED with cards -->
+    <section id="certificates">
+      <h2 class="section-title"><i class="fas fa-certificate"></i> Certificates</h2>
+      <div class="cert-grid">
+        <!-- Certificate 1 -->
+        <a href="https://drive.google.com/file/d/1QdrZPTYFn9iGkvUHGeTg1P8049riIDJJ/view?usp=drive_link" target="_blank" class="cert-card">
+          <div class="cert-icon"><i class="fab fa-react"></i></div>
+          <div class="cert-info">
+            <div class="cert-name">Front-end Development Libraries</div>
+            <div class="cert-issuer">freeCodeCamp</div>
+          </div>
+          <div class="cert-arrow"><i class="fas fa-chevron-right"></i></div>
+        </a>
+
+        <!-- Certificate 2 -->
+        <a href="https://drive.google.com/file/d/1Qc1AePMTFqBm3EwFygfHAnRsr3bsWELu/view?usp=drive_link" target="_blank" class="cert-card">
+          <div class="cert-icon"><i class="fab fa-python"></i></div>
+          <div class="cert-info">
+            <div class="cert-name">Python Fundamentals For Beginners</div>
+            <div class="cert-issuer">Great Learning</div>
+          </div>
+          <div class="cert-arrow"><i class="fas fa-chevron-right"></i></div>
+        </a>
+
+        <!-- Certificate 3 -->
+        <a href="https://drive.google.com/file/d/1QnwMdv6ZG4_RZ62vOG1dTnNuAjvfFHB_/view?usp=drive_link" target="_blank" class="cert-card">
+          <div class="cert-icon"><i class="fab fa-js"></i></div>
+          <div class="cert-info">
+            <div class="cert-name">JavaScript Algorithms & Data Structures</div>
+            <div class="cert-issuer">freeCodeCamp</div>
+          </div>
+          <div class="cert-arrow"><i class="fas fa-chevron-right"></i></div>
+        </a>
+
+        <!-- Certificate 4 -->
+        <a href="https://drive.google.com/file/d/1QbZg8pTy6kDL-XQIYuk3vJSdlDWaDyjt/view?usp=drive_link" target="_blank" class="cert-card">
+          <div class="cert-icon"><i class="fas fa-code"></i></div>
+          <div class="cert-info">
+            <div class="cert-name">Programming Essentials In Python</div>
+            <div class="cert-issuer">Cisco Networking Academy</div>
+          </div>
+          <div class="cert-arrow"><i class="fas fa-chevron-right"></i></div>
+        </a>
+
+        <!-- Certificate 5 -->
+        <a href="https://drive.google.com/file/d/1Qor8HdxL9T1Zv6Epk63YEfCqgjf5TVZ-/view?usp=drive_link" target="_blank" class="cert-card">
+          <div class="cert-icon"><i class="fas fa-mobile-alt"></i></div>
+          <div class="cert-info">
+            <div class="cert-name">Responsive Web Design</div>
+            <div class="cert-issuer">freeCodeCamp</div>
+          </div>
+          <div class="cert-arrow"><i class="fas fa-chevron-right"></i></div>
+        </a>
+
+        <!-- Certificate 6 -->
+        <a href="https://drive.google.com/file/d/1Qd5qaJDPbhHYXsPKDncPvPh8wsFrizcS/view?usp=drive_link" target="_blank" class="cert-card">
+          <div class="cert-icon"><i class="fas fa-flask"></i></div>
+          <div class="cert-info">
+            <div class="cert-name">Scientific Computing With Python</div>
+            <div class="cert-issuer">freeCodeCamp</div>
+          </div>
+          <div class="cert-arrow"><i class="fas fa-chevron-right"></i></div>
+        </a>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <h2 class="section-title"><i class="fas fa-smile"></i> About Me</h2>
+      <p>I'm a passionate student and aspiring web developer, excited to explore the world of coding and create meaningful web experiences. My journey in web development began with the fascination of turning lines of code into captivating websites.</p>
+      <p style="margin-top: 0.6rem;">Currently on a mission to learn and apply the fundamentals of HTML, CSS, and JavaScript, I'm committed to mastering the craft. The thrill of problem-solving and the endless possibilities of web development have captured my imagination.</p>
+      <p style="margin-top: 0.6rem;">I believe in the power of user-friendly design and its impact on creating positive online experiences. As a fresher, I am enthusiastic about learning, collaborating with peers, and contributing fresh perspectives to the field of web development.</p>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <h2 class="section-title"><i class="fas fa-address-card"></i> Contact</h2>
+      <div class="contact-links">
+        <a href="mailto:snakshathira148@gmail.com"><i class="fas fa-envelope"></i> snakshathira148@gmail.com</a>
+        <a href="tel:+919080411622"><i class="fas fa-phone-alt"></i> +91 90804 11622</a>
+        <a href="https://www.linkedin.com/in/nakshathira-s-" target="_blank"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+        <a href="https://github.com/NAKSHATHIRA-S" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+      </div>
+    </section>
+
+    <!-- RESUME -->
+    <section id="resume">
+      <h2 class="section-title"><i class="fas fa-file-pdf"></i> Resume</h2>
+      <p style="margin-bottom: 1rem;">Click the button below to download my resume in PDF format.</p>
+      <a href="https://drive.google.com/file/d/1dMjwDVPTjQoXu9DAsEYDvZmsKiYcseD3/view?usp=sharing" 
+         class="download-btn" 
+         download="Nakshathira_S_Resume.pdf">
+        <i class="fas fa-download"></i> Download Resume (PDF)
+      </a>
+    </section>
+
+    <footer>
+      <p>&copy; 2026 Nakshathira S · built fresh</p>
+    </footer>
+  </div>
+
+  <!-- JavaScript: toggle project detail -->
+  <script>
+    function toggleDetail(card) {
+      const detailBox = card.querySelector('.project-detail-box');
+      if (detailBox) {
+        // close others
+        document.querySelectorAll('.project-detail-box.show').forEach(box => {
+          if (box !== detailBox) box.classList.remove('show');
+        });
+        detailBox.classList.toggle('show');
+      }
+    }
+
+    // close if click outside
+    document.addEventListener('click', function(e) {
+      const isCard = e.target.closest('.project-card');
+      if (!isCard) {
+        document.querySelectorAll('.project-detail-box.show').forEach(box => box.classList.remove('show'));
+      }
+    });
+  </script>
+
+</body>
+</html>
